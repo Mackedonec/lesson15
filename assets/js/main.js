@@ -94,17 +94,30 @@ console.log(counting.value()); // 201
  * #3
  *
  * Создайте функцию myPow(a, b, myPrint). Внутри реализуйте рекурсию для подсчета результата возведения числа a в степень b.
- * функция myPrint(a, b, res) – глобальная функция, которая должна генерировать из параметров a, b, res строку вида 'a^b=res' и возвращать ее
- * myPrint() должна быть передана в myPow() как параметр и вызвана внутри как callback-функция
+ * функция myPrint(a, b, res) – глобальная функция, которая должна генерировать из параметров a, b, res строку вида 'a^b=res' 
+ * и возвращать ее 
+ * * myPrint() должна быть передана в myPow() как параметр и вызвана внутри как callback-функция
  * функция myPow() в качестве возвращаемого значения принимает результат myPrint()
  * Например:
  * console.log(myPow(3, 4, myPrint)); // 3^4=81
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
+function myPrint(a, b, res) {
+    res = `${a}^${b}=${res}`;
+    return res;
+};
 
-//  console.log(myPow(3, 4, myPrint)); // 3^4=81
+function myPow(a, b, myPrint) {
+    function pow(x, y) {
+        if (y == 1) return x;
+        return x *= pow(x, y - 1);
+    };
+    return myPrint(a, b, pow(a, b));
+};
 
-// console.log(myPow(2, 3, myPrint)); // 2^3=8
+console.log(myPow(3, 4, myPrint)); // 3^4=81
+
+console.log(myPow(2, 3, myPrint)); // 2^3=8
 
 /*
  * #4
