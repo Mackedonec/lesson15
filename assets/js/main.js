@@ -108,9 +108,9 @@ function myPrint(a, b, res) {
 };
 
 function myPow(a, b, myPrint) {
-    function pow(x, y) {
-        if (y == 1) return x;
-        return x *= pow(x, y - 1);
+    function pow(x, n) {
+        if (n !== 1) return x *= pow(x, n - 1);
+        return x;
     };
     return myPrint(a, b, pow(a, b));
 };
