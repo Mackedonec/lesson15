@@ -131,58 +131,19 @@ console.log(myPow(2, 3, myPrint)); // 2^3=8
  * car.used – строка для описания состояния авто, допускаются значения 'used' и 'new'
  *
  */
-// function fullInfo() {
-//     return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
-// }
-
-// var yearNow = new Date().getFullYear();
-
-// var car2 = {
-//     engine: 5000,
-//     model: 'FX50 AWD',
-//     name: 'Infinite',
-//     year: 2019,
-//     info: fullInfo,
-//     get used() {
-//         if (this.year !== yearNow)
-//             return 'used'
-//         if (this.year === yearNow)
-//             return 'new'
-//     },
-//     set used(value) {
-//         if (value === 'new' && this.year < yearNow) this.year = yearNow;
-//     }
-// }
-
-// var car = {
-//     engine: 2000,
-//     model: 'Lacetti',
-//     name: 'Chevrolet',
-//     year: 2010,
-//     info: fullInfo,
-//     get used() {
-//         if (this.year !== yearNow)
-//             return 'used'
-//         if (this.year === yearNow)
-//             return 'new'
-//     },
-//     set used(value) {
-//         if (value === 'new' && this.year < yearNow) this.year = yearNow;
-//     }
-// }
 
 
 function fullInfo() {
     return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
 }
 
-var yearNow = 2150
+var yearNow = 2023
 
 var car2 = {
-    engine: 50000,
+    engine: 5000,
     model: 'SuperPuper',
-    name: 'Super2150',
-    year: 2150,
+    name: 'Super2023',
+    year: 2023,
     info: fullInfo,
     get used() {
         if (this.year !== yearNow)
@@ -196,10 +157,10 @@ var car2 = {
 }
 
 var car = {
-    engine: 20000,
+    engine: 2000,
     model: 'NoSuperPuper',
-    name: 'NoPuper2140',
-    year: 2140,
+    name: 'NoPuper2004',
+    year: 2004,
     info: fullInfo,
     get used() {
         if (this.year !== yearNow)
