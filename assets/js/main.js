@@ -130,42 +130,134 @@ console.log(myPow(2, 3, myPrint)); // 2^3=8
  * car.year – год выпуска, число
  * car.used – строка для описания состояния авто, допускаются значения 'used' и 'new'
  *
- * #5
- *
- * Для созданных ранее объектов определите метод info(), используя ключевое слово this.
- * данный метод должен формировать и возвращать строку с полной информацией об автомобиле, например:
- * Chevrolet Lacetti, 2000cc, year 2010, used
- * Infinite FX50 AWD, 5000cc, year 2019, new
- * пробелы, запятые, символы cc и текст – имеют значение и проверяются при тестировании кода
- *
- * #6
- *
- * Для созданных ранее объектов измените свойство used, используя аксессоры (геттер и сеттер).
- * - используйте текущий год либо непосредственно в своем коде, либо с помощью глобальной переменной, например, yearNow
- * - если год выпуска автомобиля отличается от текущего года, геттер used должен выводить текст 'used'
- * - если год выпуска автомобиля совпадает с текущим годом, геттер used должен выводить текст 'new'
- * - если сеттеру used присвоено значение 'new', при этом года выпуска автомобиля отличается от текущего года,
- * - необходимо изменить год выпуска автомобиля, установив в качестве значения текущий год
- * - если сеттеру used присвоено значение 'used', ничего делать не нужно
  */
+// function fullInfo() {
+//     return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
+// }
+
+// var yearNow = new Date().getFullYear();
+
+// var car2 = {
+//     engine: 5000,
+//     model: 'FX50 AWD',
+//     name: 'Infinite',
+//     year: 2019,
+//     info: fullInfo,
+//     get used() {
+//         if (this.year !== yearNow)
+//             return 'used'
+//         if (this.year === yearNow)
+//             return 'new'
+//     },
+//     set used(value) {
+//         if (value === 'new' && this.year < yearNow) this.year = yearNow;
+//     }
+// }
+
+// var car = {
+//     engine: 2000,
+//     model: 'Lacetti',
+//     name: 'Chevrolet',
+//     year: 2010,
+//     info: fullInfo,
+//     get used() {
+//         if (this.year !== yearNow)
+//             return 'used'
+//         if (this.year === yearNow)
+//             return 'new'
+//     },
+//     set used(value) {
+//         if (value === 'new' && this.year < yearNow) this.year = yearNow;
+//     }
+// }
+
+
+function fullInfo() {
+    return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
+}
+
+var yearNow = 2150
+
+var car2 = {
+    engine: 50000,
+    model: 'SuperPuper',
+    name: 'Super2150',
+    year: 2150,
+    info: fullInfo,
+    get used() {
+        if (this.year !== yearNow)
+            return 'used'
+        if (this.year === yearNow)
+            return 'new'
+    },
+    set used(value) {
+        if (value === 'new' && this.year < yearNow) this.year = yearNow;
+    }
+}
+
+var car = {
+    engine: 20000,
+    model: 'NoSuperPuper',
+    name: 'NoPuper2140',
+    year: 2140,
+    info: fullInfo,
+    get used() {
+        if (this.year !== yearNow)
+            return 'used'
+        if (this.year === yearNow)
+            return 'new'
+    },
+    set used(value) {
+        if (value === 'new' && this.year < yearNow) this.year = yearNow;
+    }
+}
+
+
+
+
+/* #5
+*
+* Для созданных ранее объектов определите метод info(), используя ключевое слово this.
+* данный метод должен формировать и возвращать строку с полной информацией об автомобиле, например:
+* Chevrolet Lacetti, 2000cc, year 2010, used
+* Infinite FX50 AWD, 5000cc, year 2019, new
+* пробелы, запятые, символы cc и текст – имеют значение и проверяются при тестировании кода
+*/
+
+
+
+
+
+
+/*
+* #6
+*
+* Для созданных ранее объектов измените свойство used, используя аксессоры (геттер и сеттер).
+* - используйте текущий год либо непосредственно в своем коде, либо с помощью глобальной переменной, например, yearNow
+* - если год выпуска автомобиля отличается от текущего года, геттер used должен выводить текст 'used'
+* - если год выпуска автомобиля совпадает с текущим годом, геттер used должен выводить текст 'new'
+* - если сеттеру used присвоено значение 'new', при этом года выпуска автомобиля отличается от текущего года,
+* - необходимо изменить год выпуска автомобиля, установив в качестве значения текущий год
+* - если сеттеру used присвоено значение 'used', ничего делать не нужно
+*/
 
 // let yearNow = new Date().getFullYear(); // получить текущий год как число
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
 
-// car.used = 'new';
+car.used = 'new';
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
 
-// car.used = 'used';
+car.used = 'used';
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- изменения не выполняются
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- изменения не выполняются
 
-// console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new
+console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new
 
-// car.used = 'used';
+car.used = 'used';
 
-// console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изменения не выполняются
+console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изменения не выполняются
 
 /*
  * #7
